@@ -1,4 +1,25 @@
 <?php
+// Instantiate the class with your secret key
+$coinhive = new CoinHiveAPI('YOUR_SECRET_KEY');
+
+// Make a simple get request without additional parameters
+$stats = $coinhive->get('/stats/site');
+echo $stats->hashesTotal;
+
+// Make a get request that requires an extra parameter
+$user = $coinhive->get('/user/balance', ['name' => 'john-doe']);
+echo $user->balance;
+
+// Make a post request
+$link = $coinhive->post('/link/create', [
+	'url' => 'http://google.com', 
+	'hashes' => 1024
+]);
+
+if ($link->success) {
+	echo $link->url;
+}
+
 class CoinHiveAPI {
 	const API_URL = 'https://api.coinhive.com';
 	private $secret = null;
