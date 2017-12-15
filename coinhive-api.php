@@ -1,6 +1,6 @@
 <?php
 // Instantiate the class with your secret key
-$coinhive = new CoinHiveAPI('YOUR_SECRET_KEY');
+$coinhive = new CoinHiveAPI('fmC6jSW3DKyK5D8QQrwd40rRAUf9rUCw');
 
 // Make a simple get request without additional parameters
 $stats = $coinhive->get('/stats/site');
